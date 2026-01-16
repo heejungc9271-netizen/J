@@ -92,25 +92,24 @@ const ACHIEVEMENTS: Achievement[] = [
 
 // --- Components ---
 
-const Logo = ({ className = "h-8" }: { className?: string }) => (
-  <div className={`flex items-center ${className}`}>
-    <img 
-      src="https://raw.githubusercontent.com/StackBlitz/stackblitz-images/main/j-company-logo.png" 
-      alt="Jcompany Logo" 
-      className="h-full w-auto object-contain"
-      onError={(e) => {
-        e.currentTarget.style.display = 'none';
-        const parent = e.currentTarget.parentElement;
-        if (parent) {
-          const fallback = document.createElement('span');
-          fallback.className = "text-xl font-black text-slate-900";
-          fallback.innerText = "JCOMPANY";
-          parent.appendChild(fallback);
-        }
-      }}
-    />
-  </div>
-);
+const Logo = ({ className = "h-8" }: { className?: string }) => {
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className={`flex items-center ${className}`}>
+      {!hasError ? (
+        <img 
+          src="https://raw.githubusercontent.com/StackBlitz/stackblitz-images/main/j-company-logo.png" 
+          alt="Jcompany Logo" 
+          className="h-full w-auto object-contain"
+          onError={() => setHasError(true)}
+        />
+      ) : (
+        <span className="text-xl font-black text-slate-900 tracking-tighter">JCOMPANY</span>
+      )}
+    </div>
+  );
+};
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
