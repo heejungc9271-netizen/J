@@ -9,11 +9,22 @@ import {
   ArrowRight,
   Globe,
   GraduationCap,
-  Trophy,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { Achievement, PainPoint } from './types';
+
+// --- Interfaces ---
+interface Achievement {
+  agency: string;
+  item: string;
+  performance: string;
+}
+
+interface PainPoint {
+  icon: React.ReactNode;
+  title: string;
+  description: React.ReactNode;
+}
 
 // --- Data ---
 const PAIN_POINTS: PainPoint[] = [
@@ -136,7 +147,13 @@ const Hero = () => (
           <p>이제 귀사의 비즈니스가 증명할 차례입니다.</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4">
-          <button onClick={() => window.scrollTo({ top: document.getElementById('apply-section')?.offsetTop, behavior: 'smooth' })} className="group bg-indigo-600 text-white px-10 py-5 rounded-xl text-xl font-black flex items-center justify-center gap-2 hover:bg-indigo-700 transition-all transform hover:-translate-y-1 shadow-2xl shadow-indigo-600/30 text-center">
+          <button 
+            onClick={() => {
+              const el = document.getElementById('apply-section');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }} 
+            className="group bg-indigo-600 text-white px-10 py-5 rounded-xl text-xl font-black flex items-center justify-center gap-2 hover:bg-indigo-700 transition-all transform hover:-translate-y-1 shadow-2xl shadow-indigo-600/30 text-center"
+          >
             실전 교육 신청하기
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </button>
