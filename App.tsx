@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   BarChart3, 
@@ -31,17 +30,17 @@ const PAIN_POINTS: PainPoint[] = [
   {
     icon: <Target className="w-10 h-10 text-indigo-600" />,
     title: "정보의 한계",
-    description: <>수만 개의 공고 중 <br /> 우리 회사가 이길 공고를 선별하지 못해 <br /> 발생하는 리소스 낭비</>
+    description: <>수만 개의 공고 중 <br /> 우리 회사가 이길 공고를 <br /> 선별하지 못해 <br /> 발생하는 리소스 낭비</>
   },
   {
     icon: <ShieldCheck className="w-10 h-10 text-indigo-600" />,
     title: "행정의 리스크",
-    description: <>까다로운 나라장터 시스템과 서류 실수로 인한 <br /> 투찰 자격 박탈 및 결격 사유 발생</>
+    description: <>까다로운 나라장터 시스템과 <br /> 서류 실수로 인한 <br /> 투찰 자격 박탈 및 결격 사유 발생</>
   },
   {
     icon: <BarChart3 className="w-10 h-10 text-indigo-600" />,
     title: "가격 설계의 한계",
-    description: <>과거 데이터를 무시한 채 ‘운’에 맡기는 <br /> 투찰가 산정으로 인한 지속적인 탈락</>
+    description: <>과거 데이터를 무시한 채 <br /> ‘운’에 맡기는 <br /> 투찰가 산정으로 인한 <br /> 지속적인 탈락</>
   },
   {
     icon: <AlertCircle className="w-10 h-10 text-indigo-600" />,
@@ -95,10 +94,12 @@ const STRATEGIES = [
 ];
 
 const ACHIEVEMENTS: Achievement[] = [
-  { agency: "OO 육군부대", item: "병영 생활관 소모품 및 잡화 납품", performance: "4,200만 원" },
-  { agency: "OO 시청 재난과", item: "안전 점검 및 시설 유지보수 용역", performance: "2,800만 원" },
+  { agency: "OO 고등학교", item: "기자재 2종 구매 건", performance: "2,500만 원" },
+  { agency: "OO 시청", item: "시립도서관 열람용 잡지 구매 건", performance: "3,300만 원" },
   { agency: "OO 공공기관", item: "사무용 가구 및 전산 장비 교체", performance: "6,500만 원" },
   { agency: "OO 초등학교", item: "교육용 콘텐츠 및 교구재 납품", performance: "1,500만 원" },
+  { agency: "OO 시청", item: "폭염피해 예방 물품 구매 건", performance: "2,000만 원" },
+  { agency: "OO 부대", item: "리프트(자동차용) 구매 건", performance: "2,200만 원" }
 ];
 
 // --- Components ---
@@ -425,22 +426,8 @@ const FinalCTA = () => (
 const Footer = () => (
   <footer className="bg-slate-950 text-slate-500 py-16 border-t border-slate-900">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-8">
-        <div>
-          <Logo className="h-10 mb-4 brightness-0 invert" />
-        </div>
-        <div className="flex gap-6 text-sm">
-          <a href="#" className="hover:text-white transition-colors">이용약관</a>
-          <a href="#" className="hover:text-white transition-colors">개인정보처리방침</a>
-          <a href="#" className="hover:text-white transition-colors">오시는 길</a>
-        </div>
-      </div>
-      <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between gap-4 text-xs font-medium uppercase tracking-widest">
-        <span>© 2024 Jcompany Strategy Lab. All rights reserved.</span>
-        <div className="flex items-center gap-2">
-          <AlertCircle className="w-4 h-4" />
-          <span className="leading-tight text-xs">본 서비스는 교육 및 컨설팅 목적으로 제공되며, 최종 투찰 결정의 책임은 기업에 있습니다.</span>
-        </div>
+      <div className="flex justify-center">
+        <Logo className="h-10 brightness-0 invert opacity-50" />
       </div>
     </div>
   </footer>
